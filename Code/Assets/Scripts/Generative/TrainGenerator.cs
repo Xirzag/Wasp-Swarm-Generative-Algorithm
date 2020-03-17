@@ -20,6 +20,7 @@ public class TrainGenerator : MonoBehaviour
     public float dieThreshold = 0;
     public int waspAmountToStartDying = 15;
     public int maxWasps = 120;
+    public bool render = true;
 
     private ShapeGenerator generator;
     private Iteration currentIteration;
@@ -35,7 +36,8 @@ public class TrainGenerator : MonoBehaviour
     {
         if (IsTraining()) {
             bool finished = currentIteration.Train();
-            GetComponent<StructureRenderer>().Render(currentIteration.structure);
+            if(render)
+                GetComponent<StructureRenderer>().Render(currentIteration.structure);
             if (finished)
             {
                 int nextIteration = currentIteration.iteration + 1;

@@ -21,12 +21,146 @@ public class ArchitectureList
 
     public static ArchitectureList ReadFromJson(string file) {
 
-        StreamReader reader = new StreamReader(file); 
-        string jsonString = reader.ReadToEnd();
-        reader.Close();
+        #if UNITY_WEBGL
+            string jsonString = defaultArchitecture;
+        #else
+            StreamReader reader = new StreamReader(file); 
+            string jsonString = reader.ReadToEnd();
+            reader.Close();
+        #endif
         
         return JsonUtility.FromJson<ArchitectureList>(jsonString);
         
     }
+
+    static string defaultArchitecture = @"
+            {""architectures"": [
+            {
+                ""name"": ""Architecture D E"",
+                ""rules"": [
+                    {""bricks"":
+                        [
+                        2, 2, 2,
+                        2, 2, 2,
+                        2, 2, 2,
+
+                        0, 0, 0,
+                        0, 1, 0,
+                        0, 0, 0,
+                        
+                        0, 0, 0,
+                        0, 0, 0,
+                        0, 0, 0,
+
+
+                        0, 0, 0,
+                        0, 1, 0,
+                        0, 0, 0,
+
+                        0, 0, 0,
+                        0, 2, 0,
+                        0, 0, 0,
+                        
+                        0, 0, 0,
+                        0, 0, 0,
+                        0, 0, 0,
+
+
+                        0, 1, 0,
+                        0, 0, 0,
+                        0, 0, 0,
+
+                        0, 2, 0,
+                        0, 2, 0,
+                        0, 0, 0,
+                        
+                        0, 0, 0,
+                        0, 0, 0,
+                        0, 0, 0,
+
+
+                        0, 1, 0,
+                        0, 0, 0,
+                        0, 0, 0,
+
+                        2, 2, 2,
+                        0, 2, 0,
+                        0, 0, 0,
+                        
+                        0, 0, 0,
+                        0, 0, 0,
+                        0, 0, 0,
+
+
+                        1, 0, 0,
+                        0, 0, 0,
+                        0, 0, 0,
+
+                        2, 2, 0,
+                        2, 2, 0,
+                        0, 0, 0,
+                        
+                        0, 0, 0,
+                        0, 0, 0,
+                        0, 0, 0,
+
+
+                        0, 0, 0,
+                        0, 0, 0,
+                        0, 0, 0,
+
+                        2, 2, 2,
+                        0, 2, 0,
+                        0, 0, 0,
+                        
+                        0, 0, 0,
+                        0, 0, 0,
+                        0, 0, 0,
+
+
+                        0, 0, 0,
+                        0, 0, 0,
+                        0, 0, 0,
+
+                        2, 2, 2,
+                        2, 2, 0,
+                        2, 0, 0,
+                        
+                        0, 0, 0,
+                        0, 0, 0,
+                        0, 0, 0,
+
+
+
+                        0, 0, 0,
+                        0, 0, 0,
+                        0, 0, 0,
+
+                        2, 2, 0,
+                        2, 2, 0,
+                        0, 0, 0,
+                        
+                        0, 0, 0,
+                        0, 0, 0,
+                        0, 0, 0,
+
+
+                        0, 0, 0,
+                        0, 0, 0,
+                        0, 0, 0,
+
+                        2, 2, 2,
+                        2, 2, 2,
+                        0, 0, 0,
+                        
+                        0, 0, 0,
+                        0, 0, 0,
+                        0, 0, 0
+
+                        ]
+                    }
+                ]
+            }
+        ]}";
 
 }

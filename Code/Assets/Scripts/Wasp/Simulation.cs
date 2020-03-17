@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static ArchitectureList.Architecture;
+using UnityEngine.SceneManagement;
 
 public class Simulation : MonoBehaviour
 {
@@ -73,6 +74,10 @@ public class Simulation : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.C)) {
             alpha = alpha == 1? .5f : 1;
             updateBricksInGame();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            SceneManager.LoadScene("Menu");
         }
             
 

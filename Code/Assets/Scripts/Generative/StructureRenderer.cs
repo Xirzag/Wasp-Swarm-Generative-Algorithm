@@ -20,9 +20,11 @@ public class StructureRenderer : MonoBehaviour
         {
             if (brick.Value != 0) {
                 Vector3 position = new Vector3(brick.Key.x, brick.Key.y, 0);
-                var g = Instantiate(brickPrefab, transform.position + position, transform.rotation);
+                var g = Instantiate(brickPrefab);
                 renderedBricks.Add(g);
                 g.transform.parent = transform;
+                g.transform.localPosition = position;
+                g.transform.localRotation = Quaternion.identity;
             }
         }
     }
